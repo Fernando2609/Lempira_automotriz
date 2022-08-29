@@ -17,6 +17,8 @@ class LoginModelo{
       $sql = "INSERT INTO usuarios VALUES(0,";
       $sql.= "'".$data["nombre"]."', ";
       $sql.= "'".$data["email"]."', ";
+      $sql.= "'".$data["id_estadocivil"]."', "; //<!-- Actualizacion -->
+      $sql.= "'".$data["id_sexo"]."', "; //<!-- Actualizacion -->
       $sql.= "'".$data["fecha_nacimiento"]."', ";
       $sql.= "'".$data["telefono_celular"]."', ";
       $sql.= "'".$data["telefono_fijo"]."', ";
@@ -41,9 +43,9 @@ class LoginModelo{
     $clave = substr($clave,0,200);
     $data = $this->db->query($sql);
     if(empty($data)){
-      array_push($errores, "No existe ese usuario, favor de verficarlo.");
+      array_push($errores, "Usuario o contraseña incorrectos, favor de verficarlo.");
     }else if ($clave!=$data["clave"]) {
-      array_push($errores, "Contraseña de acceso erronea, favor de verficarlo.");
+      array_push($errores, "Usuario o contraseña incorrectos, favor de verficarlo.");
     }
     return $errores;
   }
@@ -60,28 +62,30 @@ class LoginModelo{
     //var_dump($data);
 
     $id = $data["id"];
+    $asunto = "Cambiar contraseña de acceso";
     $nombre = $data["nombre"];
-    $msg = $nombre.", entra al siguiente enlace para cambiar tu contraseña de acceso a Lempira Automotríz....!<br>";
-    $msg.= "<a hre='" .RUTA. "/login/cambiarContraseña/".$id."'>Cambia tu contraseña de acceso</a>";   
-    
+    $msg = $nombre.", entra al siguiente enlace para cambiar tu contraseña de acceso a Lempira Automotríz:<br>";
+    $msg.= "-> Cambia tu contraseña de acceso aqui:  '13.90.75.175:8080/lempira_automotriz/login/cambiarClave/".base64_encode($id)."'";  
+    //$msg.= "<a href='13.90.75.175:8080/lempira_automotriz/login/cambiarClave/1".$id."'>Cambia tu contraseña de acceso</a>";  
+    //login/cambiarContraseña/
     $headers = "LEMPIRA_AUTOMOTRÍZ-Version: 1.0\r\n"; 
-    $headers .= "Content-type:text/html; charset=UTF-8\r\n"; 
-    $headers .= "From: lempira_automotriz\r\n"; 
-    $headers .= "Repaly-to: lempira_automotriz@tiendavirtual.com\r\n";
+    $headers.= "Content-type:text/html; charset=UTF-8\r\n"; 
+    $headers.= "From: Lempira Automotriz HN\r\n"; 
+    $headers.= "Repaly-to: lempira.automotrizhn@gmail.com\r\n";
 
-    $asunto = "Cambiar clave de acceso";
-
-    return @mail($email,$asunto, $msg, $headers);
+    return mail($email,$asunto, $msg, $headers);
   }
 
   function cambiarClaveAcceso($id, $clave){
     $r = false;
     $clave = hash_hmac("sha512", $clave, "sistemaweb");
-    $sql = "UPDATE INTO usuarios SET";
+    $sql = "UPDATE usuarios SET ";
     $sql.= "clave='".$clave."' ";
     $sql.= "WHERE id=".$id;
     $r = $this->db->queryNoSelect($sql);
     return $r;
   }
+
+
 }
 ?>

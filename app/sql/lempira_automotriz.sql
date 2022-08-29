@@ -1,0 +1,606 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.0
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 02-07-2021 a las 11:48:29
+-- Versión del servidor: 10.4.19-MariaDB
+-- Versión de PHP: 8.0.6
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `lempira_automotriz`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `admon`
+--
+
+CREATE TABLE `admon` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+  `correo` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
+  `clave` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+  `status` tinyint(4) NOT NULL,
+  `baja` tinyint(4) NOT NULL,
+  `telefono_celular` varchar(15) COLLATE utf8_spanish2_ci NOT NULL,
+  `telefono_fijo` varchar(15) COLLATE utf8_spanish2_ci NOT NULL,
+  `direccion` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+  `no_identidad` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
+  `fecha_nacimiento` date DEFAULT NULL,
+  `login_dt` datetime NOT NULL,
+  `baja_dt` datetime NOT NULL,
+  `modificado_dt` datetime NOT NULL,
+  `creado_dt` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `admon`
+--
+
+INSERT INTO `admon` (`id`, `nombre`, `correo`, `clave`, `status`, `baja`, `telefono_celular`, `telefono_fijo`, `direccion`, `no_identidad`, `fecha_nacimiento`, `login_dt`, `baja_dt`, `modificado_dt`, `creado_dt`) VALUES
+(1, 'Carmen Z', 'carmenz@gmail.com', 'fcd6701b987d10884b5020458e3e1724344cfcd82fc465cae2871f8347757decf6cb99330bc6749eb5bf5463d47ebd231038c3c30a5184c89f3d73abee22a828', 1, 0, '8796-4578', '2265-8741', 'Col. San Miguel', '0801-1990-36598', '2021-07-02', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2021-07-02 00:01:12'),
+(2, 'Carlos F.', 'carlosf@gmail.com', '3253812e52244c43795fd25d06c2527d6e8e3d98cf2ac8634db22aa2388b44eb6b6cc3f503f1f32af1f8712d6848a52a566f275fdffb73ee29a910b279d9f907', 1, 0, '8815-4511', '2236-8741', 'Col. San Miguel', '0801-1990-965847', '2021-07-16', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2021-07-02 00:25:07'),
+(3, 'Leonela', 'leonela@gmail.com', '3253812e52244c43795fd25d06c2527d6e8e3d98cf2ac8634db22aa2388b44eb6b6cc3f503f1f32af1f8712d6848a52a566f275fdffb73ee29a910b279d9f907', 1, 0, '4536-9874', '2241-7895', 'Col. San Miguel', '0801-1990-965847', '2021-07-02', '2021-07-02 03:43:57', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2021-07-02 01:40:46');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `auto`
+--
+
+CREATE TABLE `auto` (
+  `ID_AUTO` int(11) NOT NULL COMMENT 'CAMPO USADO COMO LLAVE PRIMARIA',
+  `ID_COLORAUTO` int(11) DEFAULT NULL COMMENT 'CAMPO USADO COMO LLAVE FORANEA DE LA TABLA COLOR AUTO',
+  `ID_TIPOAUTO` int(11) DEFAULT NULL COMMENT 'CAMPO USADO COMO LLAVE FORANEA DE LA TABLA TIPO_AUTO',
+  `PRECIO` double DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR EL PRECIO DEL AUTO',
+  `ID_MODELO` int(11) DEFAULT NULL COMMENT 'CAMPO USADO COMO LLAVE FORANEA DE LA TABLA MODELO',
+  `ID_MARCA` int(11) DEFAULT NULL COMMENT 'CAMPO USADO COMO LLAVE FORANEA DE LA TABLA MARCA',
+  `NUMERO_CHASIS` varchar(30) DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR EL NUMERO DE CHASIS DEL AUTO',
+  `IMAGEN_AUTO` longblob DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR LA IMAGEN DEL AUTO',
+  `AÑO_AUTO` int(11) DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR EL AÑO DEL AUTO',
+  `ID_USOAUTO` int(11) DEFAULT NULL COMMENT 'CAMPO USADO COMO LLAVE FORANEA DE LA TABLA USO AUTO',
+  `KILOMETRAJE` varchar(10) DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR EL KILOMETRAJE DEL AUTO',
+  `ESTADO_AUTO` tinyint(1) DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR EL ESTADO DEL AUTO',
+  `MOTOR_SERIE` varchar(45) DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR LA SERIE DEL MOTOR DEL AUTO',
+  `TRANSMISION` varchar(45) DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR LA TRANSMISION DEL AUTO',
+  `CILINDRAJE` int(11) DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR EL CILINDRAJE DEL AUTO',
+  `POTENCIA` double DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR LA POTENCIA DEL AUTO',
+  `TRACCION` varchar(45) DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR LA TRACCION DEL AUTO',
+  `DESCRIPCION_COMBUSTIBLE` varchar(30) DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR LA DESCRIPCION DE COMBUSTIBLE DEL AUTO'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `colorauto`
+--
+
+CREATE TABLE `colorauto` (
+  `ID_COLORAUTO` int(11) NOT NULL COMMENT 'CAMPO USADO COMO LLAVE PRIMARIA',
+  `DESCRIPCION` varchar(30) DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR LA DESCRIPCION DEL COLORAUTO'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `compras`
+--
+
+CREATE TABLE `compras` (
+  `ID_COMPRAS` int(11) NOT NULL COMMENT 'CAMPO USADO COMO LLAVE PRIMARIA',
+  `ID_AUTO` int(11) NOT NULL COMMENT 'CAMPO USADO COMO LLAVE PRIMARIA Y LLAVE FORANEA DE LA TABLA AUTO',
+  `ID_PROVEEDOR` int(11) DEFAULT NULL COMMENT 'CAMPO USADO COMO LLAVE FORANEA DE LA TABLA PROVEEDOR'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detallefactura`
+--
+
+CREATE TABLE `detallefactura` (
+  `ID_DETALLEFACTURA` int(11) NOT NULL COMMENT 'ÍNDICE DE LA TABLA DETALLE FACTURA',
+  `PRECIO` double DEFAULT NULL COMMENT 'SE MUESTRA EL PRECIO DEL VEHÍCULO',
+  `CANTIDAD` int(11) DEFAULT NULL COMMENT 'SE MUESTRA LA CANTIDAD DE VEHICULOS QUE LLEVARÁ EL CLIENTE',
+  `ID_AUTO` int(11) NOT NULL COMMENT 'SE IDENTIFICA EL AUTO QUE SE ESTÁ VENDIENDO',
+  `ID_VENTAS` int(11) NOT NULL COMMENT 'SE IDENTIFICA LA VENTA QUE SE AGREGA A LA FACTURA',
+  `FECHA_FACTURA` date DEFAULT NULL COMMENT 'ESPACIO PARA REGISTRAR LA FECHA DE LA FACTUAR'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estadocivil`
+--
+
+CREATE TABLE `estadocivil` (
+  `ID_ESTADOCIVIL` int(11) NOT NULL COMMENT 'ÍNDICE DEL ESTADO CIVIL DEL USUARIO',
+  `NOMBRE` varchar(10) DEFAULT NULL COMMENT 'CASAD@ O SOLTER@'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `inventario`
+--
+
+CREATE TABLE `inventario` (
+  `ID_AUTO` int(11) NOT NULL COMMENT 'CAMPO USADO COMO LLAVE PRIMARIA Y LLAVE FORANEA DE LA TABLA AUTO',
+  `ID_COMPRAS` int(11) DEFAULT NULL COMMENT 'CAMPO USADO COMO LLAVE FORANEA DE LA TABLA COMPRAS',
+  `ID_VENTAS` int(11) NOT NULL COMMENT 'CAMPO USADO COMO LLAVE PRIMARIA Y LLAVE FORANEA DE LA TABLA VENTAS',
+  `FECHA_REGISTRO` date DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR LA FECHA DEL REGISTRO'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `marca`
+--
+
+CREATE TABLE `marca` (
+  `ID_MARCA` int(11) NOT NULL COMMENT 'CAMPO USADO COMO LLAVE PRIMARIA',
+  `DESCRIPCION` varchar(30) DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR LA DESCRIPCION DE LA MARCA'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `modelo`
+--
+
+CREATE TABLE `modelo` (
+  `ID_MODELO` int(11) NOT NULL COMMENT 'CAMPO USADO COMO LLAVE PRIMARIA',
+  `DESCRIPCION` varchar(30) DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR LA DESCRIPCION DEL MODELO',
+  `ID_MARCA` int(11) DEFAULT NULL COMMENT 'CAMPO USADO COMO LLAVE FORANEA DE LA TABLA MARCA'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `persona`
+--
+
+CREATE TABLE `persona` (
+  `ID_PERSONA` int(11) NOT NULL COMMENT 'INDICE DE LA TABLA PERSONA',
+  `NOMBRE` varchar(45) DEFAULT NULL COMMENT 'CAMPO PARA NOMBRE DE PERSONA',
+  `CORREO` varchar(30) DEFAULT NULL COMMENT 'CAMPO PARA GUARDAR EL CORREO, FUNCIONARÁ COMO NOMBRE DE USUARIO TAMBIÉN',
+  `ID_ESTADOCIVIL` int(11) DEFAULT NULL COMMENT 'LLAVE FORANEA DEL ESTADO CIVIL',
+  `ID_SEXO` int(11) DEFAULT NULL COMMENT 'CAMPO PARA DETERMINAR EL SEXO DEL USUARIO',
+  `FECHA_NACIMIENTO` date DEFAULT NULL COMMENT 'CAMPO QUE DETERMINA LA EDAD DE LA PERSONA',
+  `FECHA_REGISTRO` date DEFAULT NULL COMMENT 'SE REGISTRA LA FECHA EN LA QUE EL USUARIO SE REGISTRÓ',
+  `TELEFONO_CELULAR` varchar(15) DEFAULT NULL COMMENT 'CAMPO QUE ALMACENA EL NÚMERO DE CELULAR DEL USUARIO',
+  `TELEFONO_FIJO` varchar(15) DEFAULT NULL COMMENT 'CAMPO PARA EL TELÉFONO FIJO NO ES OBLIGATORIO',
+  `DIRECCION` varchar(50) DEFAULT NULL COMMENT 'CAMPO PARA LA DIRECCION DEL USUARIO',
+  `NO_IDENTIDAD` varchar(45) DEFAULT NULL COMMENT 'SE REGISTRA EL NÚMERO DE IDENTIDAD O PASAPORTE DEL USUARIO',
+  `ESTADO` tinyint(1) DEFAULT NULL COMMENT 'SE IDENTIFICA SI EL USUARIO SE ENCUENTRA ACTIVO',
+  `CONTRASEÑA` varchar(200) DEFAULT NULL COMMENT 'SE GUARDA LA CONTRASEÑA PARA QUE EL USUARIO INGRESE'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `proveedor`
+--
+
+CREATE TABLE `proveedor` (
+  `ID_PROVEEDOR` int(11) NOT NULL COMMENT 'CAMPO USADO COMO LLAVE PRIMARIA',
+  `NOMBRE_PROVEEDOR` varchar(45) DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR EL NOMBRE DEL PROVEEDOR',
+  `NOMBRE_MARCA` varchar(30) DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR EL NOMBRE DE LA MARCA DEL PROVEEDOR',
+  `DIRECCION` varchar(50) DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR LA DIRECCION DEL PROVEEDOR',
+  `TELEFONO_PROVEEDOR` varchar(15) DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR EL TELEFONO DEL PROVEEDOR',
+  `CORREO_PROVEEDOR` varchar(30) DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR EL CORREO DEL PROVEEDOR'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `proveedor_auto`
+--
+
+CREATE TABLE `proveedor_auto` (
+  `ID_PROVEEDOR` int(11) NOT NULL COMMENT 'CAMPO USADO COMO LLAVE PRIMARIA',
+  `ID_AUTO` int(11) NOT NULL COMMENT 'CAMPO USADO COMO LLAVE FORANEA DE LA TABLA AUTO'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `roles`
+--
+
+CREATE TABLE `roles` (
+  `ID_ROLE` int(11) NOT NULL COMMENT 'ÍNDICE PARA DETERMINAR EL ROL DEL USUARIO',
+  `DESCRIPCION` varchar(25) DEFAULT NULL COMMENT 'SE DESCRIBE SI ES CLIENTE O ADMINISTRADOR'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `sexo`
+--
+
+CREATE TABLE `sexo` (
+  `ID_SEXO` int(11) NOT NULL COMMENT 'ÍNDICE DEL POSIBLE SEXO DEL USUARIO',
+  `NOMBRE` varchar(10) DEFAULT NULL COMMENT 'SE DETERMINA SI EL USUARIO ES HOMBRE O MUJER'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tipo_auto`
+--
+
+CREATE TABLE `tipo_auto` (
+  `ID_TIPOAUTO` int(11) NOT NULL COMMENT 'CAMPO USADO COMO LLAVE PRIMARIA',
+  `DESCRIPCION` varchar(45) DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR LA DESCRIPCION DEL TIPO DE AUTO'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usoauto`
+--
+
+CREATE TABLE `usoauto` (
+  `ID_USOAUTO` int(11) NOT NULL COMMENT 'CAMPO USADO COMO LLAVE PRIMARIA',
+  `DESCRIPCION` varchar(30) DEFAULT NULL COMMENT 'CAMPO USADO PARA GUARDAR LA DESCRIPCION DEL USOAUTO'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
+  `email` varchar(200) COLLATE latin1_spanish_ci NOT NULL,
+  `fecha_nacimiento` date NOT NULL,
+  `telefono_celular` varchar(20) COLLATE latin1_spanish_ci NOT NULL,
+  `telefono_fijo` varchar(20) COLLATE latin1_spanish_ci NOT NULL,
+  `no_identidad` varchar(20) COLLATE latin1_spanish_ci NOT NULL,
+  `direccion` varchar(150) COLLATE latin1_spanish_ci NOT NULL,
+  `clave` varchar(200) COLLATE latin1_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nombre`, `email`, `fecha_nacimiento`, `telefono_celular`, `telefono_fijo`, `no_identidad`, `direccion`, `clave`) VALUES
+(1, 'Juan Pérez', 'juan_perez@gmail.com', '1999-11-17', '8998-4578', '2255-3696', '0801-1999-25475', 'Flor del campo', '6c95c821841b76ed86569baca17296e0e5279fc505448b943df479276d01867c9e63c07204f830d5e9fb769dbe0e3671f13c7d511abf56f033808ccf39d08b26'),
+(2, 'Cristiano Ronaldo', 'cristiano.ronaldo@gmail.com', '1986-06-26', '9689-8975', '2236-4578', '0801-1986-25555', 'Colonia La era', '6c95c821841b76ed86569baca17296e0e5279fc505448b943df479276d01867c9e63c07204f830d5e9fb769dbe0e3671f13c7d511abf56f033808ccf39d08b26'),
+(4, 'Leonel Messi', 'leonel.messi@gmail.com', '1980-11-10', '8956-4535', '2289-2558', '0801-1980-20000', 'Flor del campo', '6c95c821841b76ed86569baca17296e0e5279fc505448b943df479276d01867c9e63c07204f830d5e9fb769dbe0e3671f13c7d511abf56f033808ccf39d08b26'),
+(5, 'Sergio Ramos', 'sergio.ramos@gmail.com', '2021-06-11', '9549-2626', '2265-2266', '0801-2021-20000', 'Pedregal', '6c95c821841b76ed86569baca17296e0e5279fc505448b943df479276d01867c9e63c07204f830d5e9fb769dbe0e3671f13c7d511abf56f033808ccf39d08b26');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ventas`
+--
+
+CREATE TABLE `ventas` (
+  `ID_VENTAS` int(11) NOT NULL COMMENT 'ÍNDICE DE LA TABLA VENTAS',
+  `SUBTOTAL` double DEFAULT NULL COMMENT 'TABLA PARA MOSTRAR EL PRECIO DE VENTA SIN EL IMPUESTO',
+  `ISV` double DEFAULT NULL COMMENT 'TABLA PARA MOSTRAR EL IMPUESTO',
+  `TOTAL` double DEFAULT NULL COMMENT 'SE MUESTRA LA SUMA ENTRE EL SUBTOTAL Y EL IMPUESTO',
+  `ID_PERSONA` int(11) DEFAULT NULL COMMENT 'RELACIÓN PARA IDENTIFICAR LA PERSONA A LA QUE SE VENDE'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `admon`
+--
+ALTER TABLE `admon`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `auto`
+--
+ALTER TABLE `auto`
+  ADD PRIMARY KEY (`ID_AUTO`),
+  ADD UNIQUE KEY `NUMERO_CHASIS` (`NUMERO_CHASIS`,`MOTOR_SERIE`),
+  ADD KEY `ID_COLORAUTO` (`ID_COLORAUTO`,`ID_TIPOAUTO`,`ID_MODELO`,`ID_MARCA`,`ID_USOAUTO`),
+  ADD KEY `AUTO_TIPO` (`ID_TIPOAUTO`),
+  ADD KEY `AUTO_MARCA` (`ID_MARCA`),
+  ADD KEY `AUTO_MODELO` (`ID_MODELO`),
+  ADD KEY `AUTO_USO` (`ID_USOAUTO`);
+
+--
+-- Indices de la tabla `colorauto`
+--
+ALTER TABLE `colorauto`
+  ADD PRIMARY KEY (`ID_COLORAUTO`);
+
+--
+-- Indices de la tabla `compras`
+--
+ALTER TABLE `compras`
+  ADD PRIMARY KEY (`ID_COMPRAS`,`ID_AUTO`),
+  ADD KEY `ID_AUTO` (`ID_AUTO`,`ID_PROVEEDOR`),
+  ADD KEY `COMPRAS_PROVEEDOR` (`ID_PROVEEDOR`);
+
+--
+-- Indices de la tabla `detallefactura`
+--
+ALTER TABLE `detallefactura`
+  ADD PRIMARY KEY (`ID_DETALLEFACTURA`,`ID_AUTO`,`ID_VENTAS`),
+  ADD KEY `ID_AUTO` (`ID_AUTO`,`ID_VENTAS`),
+  ADD KEY `DETALLE_VENTAS` (`ID_VENTAS`);
+
+--
+-- Indices de la tabla `estadocivil`
+--
+ALTER TABLE `estadocivil`
+  ADD PRIMARY KEY (`ID_ESTADOCIVIL`);
+
+--
+-- Indices de la tabla `inventario`
+--
+ALTER TABLE `inventario`
+  ADD PRIMARY KEY (`ID_AUTO`,`ID_VENTAS`),
+  ADD KEY `ID_AUTO` (`ID_AUTO`,`ID_COMPRAS`,`ID_VENTAS`),
+  ADD KEY `INVENTARIO_VENTAS` (`ID_VENTAS`),
+  ADD KEY `INVENTARIO_COMPRAS` (`ID_COMPRAS`);
+
+--
+-- Indices de la tabla `marca`
+--
+ALTER TABLE `marca`
+  ADD PRIMARY KEY (`ID_MARCA`);
+
+--
+-- Indices de la tabla `modelo`
+--
+ALTER TABLE `modelo`
+  ADD PRIMARY KEY (`ID_MODELO`),
+  ADD KEY `ID_MARCA` (`ID_MARCA`);
+
+--
+-- Indices de la tabla `persona`
+--
+ALTER TABLE `persona`
+  ADD PRIMARY KEY (`ID_PERSONA`),
+  ADD UNIQUE KEY `CORREO` (`CORREO`),
+  ADD KEY `ID_ESTADOCIVIL` (`ID_ESTADOCIVIL`,`ID_SEXO`),
+  ADD KEY `ID_SEXO_FK` (`ID_SEXO`);
+
+--
+-- Indices de la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  ADD PRIMARY KEY (`ID_PROVEEDOR`);
+
+--
+-- Indices de la tabla `proveedor_auto`
+--
+ALTER TABLE `proveedor_auto`
+  ADD PRIMARY KEY (`ID_PROVEEDOR`,`ID_AUTO`),
+  ADD KEY `ID_PROVEEDOR` (`ID_PROVEEDOR`,`ID_AUTO`),
+  ADD KEY `PROVEEDOR_AUTO` (`ID_AUTO`);
+
+--
+-- Indices de la tabla `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`ID_ROLE`);
+
+--
+-- Indices de la tabla `sexo`
+--
+ALTER TABLE `sexo`
+  ADD PRIMARY KEY (`ID_SEXO`);
+
+--
+-- Indices de la tabla `tipo_auto`
+--
+ALTER TABLE `tipo_auto`
+  ADD PRIMARY KEY (`ID_TIPOAUTO`);
+
+--
+-- Indices de la tabla `usoauto`
+--
+ALTER TABLE `usoauto`
+  ADD PRIMARY KEY (`ID_USOAUTO`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  ADD PRIMARY KEY (`ID_VENTAS`),
+  ADD KEY `ID_PERSONA` (`ID_PERSONA`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `admon`
+--
+ALTER TABLE `admon`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `auto`
+--
+ALTER TABLE `auto`
+  MODIFY `ID_AUTO` int(11) NOT NULL AUTO_INCREMENT COMMENT 'CAMPO USADO COMO LLAVE PRIMARIA';
+
+--
+-- AUTO_INCREMENT de la tabla `colorauto`
+--
+ALTER TABLE `colorauto`
+  MODIFY `ID_COLORAUTO` int(11) NOT NULL AUTO_INCREMENT COMMENT 'CAMPO USADO COMO LLAVE PRIMARIA';
+
+--
+-- AUTO_INCREMENT de la tabla `compras`
+--
+ALTER TABLE `compras`
+  MODIFY `ID_COMPRAS` int(11) NOT NULL AUTO_INCREMENT COMMENT 'CAMPO USADO COMO LLAVE PRIMARIA';
+
+--
+-- AUTO_INCREMENT de la tabla `detallefactura`
+--
+ALTER TABLE `detallefactura`
+  MODIFY `ID_DETALLEFACTURA` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ÍNDICE DE LA TABLA DETALLE FACTURA';
+
+--
+-- AUTO_INCREMENT de la tabla `estadocivil`
+--
+ALTER TABLE `estadocivil`
+  MODIFY `ID_ESTADOCIVIL` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ÍNDICE DEL ESTADO CIVIL DEL USUARIO';
+
+--
+-- AUTO_INCREMENT de la tabla `inventario`
+--
+ALTER TABLE `inventario`
+  MODIFY `ID_AUTO` int(11) NOT NULL AUTO_INCREMENT COMMENT 'CAMPO USADO COMO LLAVE PRIMARIA Y LLAVE FORANEA DE LA TABLA AUTO';
+
+--
+-- AUTO_INCREMENT de la tabla `marca`
+--
+ALTER TABLE `marca`
+  MODIFY `ID_MARCA` int(11) NOT NULL AUTO_INCREMENT COMMENT 'CAMPO USADO COMO LLAVE PRIMARIA';
+
+--
+-- AUTO_INCREMENT de la tabla `modelo`
+--
+ALTER TABLE `modelo`
+  MODIFY `ID_MODELO` int(11) NOT NULL AUTO_INCREMENT COMMENT 'CAMPO USADO COMO LLAVE PRIMARIA';
+
+--
+-- AUTO_INCREMENT de la tabla `persona`
+--
+ALTER TABLE `persona`
+  MODIFY `ID_PERSONA` int(11) NOT NULL AUTO_INCREMENT COMMENT 'INDICE DE LA TABLA PERSONA';
+
+--
+-- AUTO_INCREMENT de la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  MODIFY `ID_PROVEEDOR` int(11) NOT NULL AUTO_INCREMENT COMMENT 'CAMPO USADO COMO LLAVE PRIMARIA';
+
+--
+-- AUTO_INCREMENT de la tabla `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `ID_ROLE` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ÍNDICE PARA DETERMINAR EL ROL DEL USUARIO';
+
+--
+-- AUTO_INCREMENT de la tabla `sexo`
+--
+ALTER TABLE `sexo`
+  MODIFY `ID_SEXO` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ÍNDICE DEL POSIBLE SEXO DEL USUARIO';
+
+--
+-- AUTO_INCREMENT de la tabla `tipo_auto`
+--
+ALTER TABLE `tipo_auto`
+  MODIFY `ID_TIPOAUTO` int(11) NOT NULL AUTO_INCREMENT COMMENT 'CAMPO USADO COMO LLAVE PRIMARIA';
+
+--
+-- AUTO_INCREMENT de la tabla `usoauto`
+--
+ALTER TABLE `usoauto`
+  MODIFY `ID_USOAUTO` int(11) NOT NULL AUTO_INCREMENT COMMENT 'CAMPO USADO COMO LLAVE PRIMARIA';
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  MODIFY `ID_VENTAS` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ÍNDICE DE LA TABLA VENTAS';
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `auto`
+--
+ALTER TABLE `auto`
+  ADD CONSTRAINT `AUTO_COLOR` FOREIGN KEY (`ID_COLORAUTO`) REFERENCES `colorauto` (`ID_COLORAUTO`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `AUTO_MARCA` FOREIGN KEY (`ID_MARCA`) REFERENCES `marca` (`ID_MARCA`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `AUTO_MODELO` FOREIGN KEY (`ID_MODELO`) REFERENCES `modelo` (`ID_MODELO`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `AUTO_TIPO` FOREIGN KEY (`ID_TIPOAUTO`) REFERENCES `tipo_auto` (`ID_TIPOAUTO`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `AUTO_USO` FOREIGN KEY (`ID_USOAUTO`) REFERENCES `usoauto` (`ID_USOAUTO`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `compras`
+--
+ALTER TABLE `compras`
+  ADD CONSTRAINT `COMPRAS_AUTO` FOREIGN KEY (`ID_AUTO`) REFERENCES `auto` (`ID_AUTO`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `COMPRAS_PROVEEDOR` FOREIGN KEY (`ID_PROVEEDOR`) REFERENCES `proveedor` (`ID_PROVEEDOR`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `detallefactura`
+--
+ALTER TABLE `detallefactura`
+  ADD CONSTRAINT `DETALLE_AUTO` FOREIGN KEY (`ID_AUTO`) REFERENCES `auto` (`ID_AUTO`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `DETALLE_VENTAS` FOREIGN KEY (`ID_VENTAS`) REFERENCES `ventas` (`ID_VENTAS`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `inventario`
+--
+ALTER TABLE `inventario`
+  ADD CONSTRAINT `INVENTARIO_AUTO` FOREIGN KEY (`ID_AUTO`) REFERENCES `auto` (`ID_AUTO`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `INVENTARIO_COMPRAS` FOREIGN KEY (`ID_COMPRAS`) REFERENCES `compras` (`ID_COMPRAS`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `INVENTARIO_VENTAS` FOREIGN KEY (`ID_VENTAS`) REFERENCES `ventas` (`ID_VENTAS`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `modelo`
+--
+ALTER TABLE `modelo`
+  ADD CONSTRAINT `MODELO_MARCA` FOREIGN KEY (`ID_MARCA`) REFERENCES `marca` (`ID_MARCA`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `persona`
+--
+ALTER TABLE `persona`
+  ADD CONSTRAINT `ID_ESTADOCIVIL_FK` FOREIGN KEY (`ID_ESTADOCIVIL`) REFERENCES `estadocivil` (`ID_ESTADOCIVIL`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `ID_SEXO_FK` FOREIGN KEY (`ID_SEXO`) REFERENCES `sexo` (`ID_SEXO`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `proveedor_auto`
+--
+ALTER TABLE `proveedor_auto`
+  ADD CONSTRAINT `PROVEEDOR_AUTO` FOREIGN KEY (`ID_AUTO`) REFERENCES `auto` (`ID_AUTO`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `PROVEEDOR_PROVEEDOR` FOREIGN KEY (`ID_PROVEEDOR`) REFERENCES `proveedor` (`ID_PROVEEDOR`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  ADD CONSTRAINT `VENTA_PERSONA` FOREIGN KEY (`ID_PERSONA`) REFERENCES `persona` (`ID_PERSONA`) ON DELETE NO ACTION ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

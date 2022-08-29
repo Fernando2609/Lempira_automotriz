@@ -1,6 +1,5 @@
 <?php
-/**
- /**Control maneja la URL y lanza los procesos
+/**Control maneja la URL y lanza los procesos
  el primer elemento es el objeto o controlador
  el segundo elemento es el metodo o accion
  el tercero y posteriores son los parametros

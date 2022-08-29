@@ -1,5 +1,5 @@
 <?php include_once("encabezado.php"); ?>
-        <h1 class="text-center"><?php print $datos["subtitulo"];?></h1>
+        <h1 class="text-center bg-light font-weight-bold mt-4"><?php print $datos["subtitulo"];?></h1>
         <div class="card p-4 bg-light">
   <form action="<?php print RUTA; ?>login/olvido/" method="POST">
     

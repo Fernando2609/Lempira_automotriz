@@ -1,0 +1,480 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+* {
+  font-family: "Varela Round", sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Varela Round", sans-serif !important;
+  font-weight: 400;
+  font-size: 2rem;
+  margin: 10px 0;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: rgb(254 254 254) !important;
+  font-size: 18px !important;
+}
+a.dropdown-item:hover {
+  background-color: rgb(79, 169, 243) !important;
+  transition: 0.7s;
+}
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(221, 61, 61);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+.sidebar a > i {
+  margin-bottom: 20px;
+}
+.sidebar a {
+  padding: 20px 8px 10px 15px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ffffff;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #000000;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #343a40;
+  color: white;
+  border: none;
+  margin-right: 20rem;
+}
+
+.openbtn:hover {
+  background-color: rgb(66, 59, 59);
+}
+
+#main {
+  transition: margin-left 0.5s;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {
+    padding-top: 15px;
+  }
+  .sidebar a {
+    font-size: 18px;
+  }
+}
+.icon-inner,
+svg {
+  display: block;
+  height: 100%;
+  width: 100%;
+  margin-top: 5px !important;
+}
+a.btn.btn-success.boton1 {
+  width: 36% !important;
+}
+.boton1 {
+  width: 36% !important;
+  background-color: #4394fd !important;
+  border: 1px solid #4394fd;
+  font-size: 0.9rem;
+}
+.boton1:hover {
+  width: 35% !important;
+  background-color: #1174f5 !important;
+  transition: 0.25s;
+}
+td.activo {
+  background-color: rgba(0, 195, 255, 0.479);
+}
+td.inactivo {
+  background-color: rgba(248, 108, 108, 0.479);
+}
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #343a40 !important;
+  overflow-x: hidden;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+  padding-top: 60px;
+}
+.body {
+  font-family: "Asap", sans-serif;
+  background: url("../img/Fondo.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: 110%;
+}
+
+.admin {
+  font-family: "Asap", sans-serif;
+  background: url("../img/FondoAdmin.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: 100%;
+}
+.admonlogin {
+  font-family: "Asap", sans-serif;
+  background: url("../img/fondologinadmin.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: 100%;
+}
+.link {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  margin-top: 30px;
+}
+.link:hover {
+  color: black;
+}
+
+.imagen {
+  width: 350px;
+  padding: 0;
+}
+.titulo {
+  color: white;
+}
+.login {
+  margin: 250px 450px 200px 4px;
+  overflow: hidden;
+  background-color: rgba(241, 233, 233, 0.781);
+  padding: 10px 30px 0px 30px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 485px;
+  margin-left: auto;
+  margin-right: auto;
+
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: -webkit-transform 300ms, box-shadow 300ms;
+  -moz-transition: -moz-transform 300ms, box-shadow 300ms;
+  transition: transform 300ms, box-shadow 300ms;
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.438);
+}
+.login::before,
+.login::after {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-top-left-radius: 40%;
+  border-top-right-radius: 45%;
+  border-bottom-left-radius: 35%;
+  border-bottom-right-radius: 40%;
+  z-index: -1;
+}
+.login::before {
+  left: 40%;
+  bottom: -90%;
+  background-color: rgba(0, 225, 255, 0.815);
+  -webkit-animation: wawes 6s infinite linear;
+  -moz-animation: wawes 6s infinite linear;
+  animation: wawes 6s infinite linear;
+}
+.login::after {
+  left: 35%;
+  bottom: -100%;
+  background-color: rgba(0, 102, 255, 0.438);
+  -webkit-animation: wawes 7s infinite;
+  -moz-animation: wawes 7s infinite;
+  animation: wawes 7s infinite;
+}
+.login .input {
+  font-family: "Asap", sans-serif;
+  display: block;
+  border-radius: 5px;
+  font-size: 16px;
+  background: white;
+  width: 100%;
+  border: 0;
+  padding: 6px 10px;
+  margin: 5px 0 12px 0;
+}
+.label .label {
+  font-family: "asap", sans-serif;
+  margin-bottom: 2px;
+}
+
+.login > select {
+  font-family: "Asap", sans-serif;
+  display: block;
+  border-radius: 5px;
+  font-size: 16px;
+  background: white;
+  width: 105%;
+  border: 0;
+  padding: 10px 10px;
+  margin: 15px -10px;
+}
+.login > button {
+  display: block;
+  font-family: "Asap", sans-serif;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  width: 300px;
+  border: 0;
+  padding: 10px 0;
+  margin-top: 10px;
+  margin-left: 13px;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  background-color: #1174f5;
+  -webkit-transition: background-color 300ms;
+  -moz-transition: background-color 300ms;
+  transition: background-color 300ms;
+}
+.login > button:hover {
+  background-color: #061ef7;
+}
+.login button2 {
+  font-family: "Asap", sans-serif;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  width: 80px;
+  border: 0;
+  padding: 10px 0;
+  margin-top: 10px;
+  margin-left: -5px;
+  border-radius: 5px;
+  background-color: #1174f5;
+  -webkit-transition: background-color 300ms;
+  -moz-transition: background-color 300ms;
+  transition: background-color 300ms;
+}
+.login button2 {
+  background-color: #061ef7;
+}
+@-webkit-keyframes wawes {
+  from {
+    -webkit-transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes wawes {
+  from {
+    -moz-transform: rotate(0);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+@keyframes wawes {
+  from {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+a {
+  text-decoration: none;
+  color: rgba(228, 200, 200, 0.6);
+  right: 10px;
+  bottom: 10px;
+  font-size: 12px;
+}
+
+/*------------REGISTRO-------------------*/
+.registro {
+  overflow: hidden;
+  background-color: rgba(241, 233, 233, 0.781);
+  padding: 40px 30px 30px 30px;
+  border-radius: 10px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 400px;
+
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: -webkit-transform 300ms, box-shadow 300ms;
+  -moz-transition: -moz-transform 300ms, box-shadow 300ms;
+  transition: transform 300ms, box-shadow 300ms;
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.438);
+}
+.registro::before,
+.registro::after {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-top-left-radius: 40%;
+  border-top-right-radius: 45%;
+  border-bottom-left-radius: 35%;
+  border-bottom-right-radius: 40%;
+  z-index: -1;
+}
+.registro::before {
+  left: 40%;
+  bottom: -90%;
+  background-color: rgba(0, 225, 255, 0.815);
+  -webkit-animation: wawes 6s infinite linear;
+  -moz-animation: wawes 6s infinite linear;
+  animation: wawes 6s infinite linear;
+}
+.registro::after {
+  left: 35%;
+  bottom: -100%;
+  background-color: rgba(0, 102, 255, 0.438);
+  -webkit-animation: wawes 7s infinite;
+  -moz-animation: wawes 7s infinite;
+  animation: wawes 7s infinite;
+}
+.registro > input {
+  font-family: "Asap", sans-serif;
+  display: block;
+  border-radius: 5px;
+  font-size: 16px;
+  background: white;
+  width: 100%;
+  border: 0;
+  padding: 10px 10px;
+  margin: 15px -10px;
+}
+.registro > label {
+  font-family: "asap", sans-serif;
+}
+.registro > select {
+  font-family: "Asap", sans-serif;
+  display: block;
+  border-radius: 5px;
+  font-size: 16px;
+  background: white;
+  width: 105%;
+  border: 0;
+  padding: 10px 10px;
+  margin: 15px -10px;
+}
+.registro > button {
+  display: block;
+  font-family: "Asap", sans-serif;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  width: 400px;
+  border: 0;
+  padding: 10px 0;
+  margin-top: 10px;
+  margin-left: -5px;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  background-color: #1174f5;
+  -webkit-transition: background-color 300ms;
+  -moz-transition: background-color 300ms;
+  transition: background-color 300ms;
+}
+.registro > button:hover {
+  background-color: #061ef7;
+}
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+color-titulo {
+  color: #0741ad;
+  background-color: aqua;
+}
+.color {
+  color: rgb(2, 8, 8);
+}
+.a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  right: 10px;
+  bottom: 10px;
+  font-size: 16px;
+}
+.d-flex.justify-content-between {
+  align-items: baseline;
+}
+.a:hover {
+  color: #eee1e1;
+}
+.bg-light {
+  background-color: rgba(248, 249, 250, 0.851) !important;
+}
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  font-size: 17px;
+}
+.centrar {
+  margin-left: 185px !important;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: rgb(0, 0, 0) !important;
+  font-size: 18px !important;
+  transition: 0.2s;
+  background-color: rgb(117, 117, 117);
+}
+.tabla {
+  vertical-align: middle !important;
+  background-color: #51a8e0a3;
+}
+.boton1 {
+  background-color: #4394fd;
+}

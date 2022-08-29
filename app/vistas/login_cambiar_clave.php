@@ -1,5 +1,5 @@
 <?php include_once("encabezado.php"); ?>
-        <h1 class="text-center">Cambia tu contraseña de acceso</h1>
+        <h1 class="text-center bg-light font-weight-bold mt-4">Cambia tu contraseña de acceso</h1>
         <div class="card p-4 bg-light">
   <form action="<?php print RUTA; ?>login/cambiarClave/" method="POST">
     
