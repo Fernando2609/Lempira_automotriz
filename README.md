@@ -20,7 +20,7 @@
 -->
 
 
-<!-- PROJECT LOGO -->public\img\imagen.png
+<!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/Fernando2609/Lempira_automotriz.git">
