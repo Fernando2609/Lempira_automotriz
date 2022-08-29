@@ -23,8 +23,8 @@
 <!-- PROJECT LOGO -->public\img\imagen.png
 <br />
 <div align="center">
-  <a href="https://github.com/Fernando2609/route77.git">
-    <img src="public\img\imagen.png" alt="Logo" width="380" height="380">
+  <a href="https://github.com/Fernando2609/Lempira_automotriz.git">
+    <img src="public\img\imagen.png" alt="Logo" width="900" height="600">
   </a>
 
 <h3 align="center">Lempira Automotriz</h3>
@@ -32,7 +32,7 @@
   <p align="center">
     Proyecto web desarrollado por el equipo THE SIX COMPUTER COUGARS
     <br />
-    <a href="https://github.com/Fernando2609/route77.git"><strong>Explorar Documentos »</strong></a>
+    <a href="https://github.com/Fernando2609/Lempira_automotriz.git"><strong>Explorar Documentos »</strong></a>
     <br />
     <br />
     
@@ -64,7 +64,7 @@
 
 
 <div align="center">
-<img src="public\img\imagen2.png" alt="Logo" width="620" height="380">
+<img src="public\img\Imagen2.png" alt="Logo" width="620" height="620">
 </div>
 
 
@@ -73,7 +73,7 @@
 
 1. Clonar Repositorio
    ```sh
-   git clone https://github.com/Fernando2609/route77.git
+   git clone https://github.com/Fernando2609/Lempira_automotriz
    ```
 
 
@@ -114,7 +114,7 @@ En Proceso...
 
 Fernando Ortiz - jfortiz@unah.hn
 
-Link del proyecto: [https://github.com/Fernando2609/route77.git](https://github.com/Fernando2609/route77.git)
+Link del proyecto: [https://github.com/Fernando2609/Lempira_automotriz.git](https://github.com/Fernando2609/Lempira_automotriz.git)
 
 <p align="right">(<a href="#top">Volver Arriba</a>)</p>
 
